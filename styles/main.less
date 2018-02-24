@@ -1,2 +1,54 @@
 @import "variables";
 @import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-wrapper {
+    background: url("../img/bg1.png") no-repeat center center / cover;
+}
+
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+// HEADER
+
+.menu {
+  &_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__title {
+    .text-change (22px, regular, @text-color1, @font-family3);
+    margin: 50px 0 50px 15px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 50px;
+  }
+
+  &__link {
+    .text-change (14px, regular, @text-color1, @font-family1);
+    text-decoration: none;
+    padding: 14px 22px;
+    margin-left: 10px;
+
+    &:hover {
+      border: 3px solid #fff;
+      border-radius: 30px;
+      padding-left: 19px;
+      padding-right: 19px;
+      transition: 0.2s;
+    }
+  }
+}
+
