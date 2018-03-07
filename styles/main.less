@@ -7,7 +7,8 @@
 }
 
 .bg-wrapper {
-    background: url("../img/bg1.png") no-repeat center center / cover;
+    background: url("../img/bg1.png") no-repeat center top / cover;
+    height: 100vh;
 }
 
 .wrapper {
@@ -15,7 +16,7 @@
   margin: 0 auto;
 }
 
-// HEADER
+// navigation block
 
 .menu {
   &_wrapper {
@@ -37,6 +38,7 @@
     }
   }
 
+  // СКРЫТОЕ МЕНЮ
   .checkbox {
     display: none;
   }
@@ -48,6 +50,7 @@
     display: block;
     margin-top: 41px;
     margin-right: 30px;
+    margin-bottom: 10px;
 
     @media (min-width: 721px) {
       display: none;
@@ -59,11 +62,16 @@
     color: @text-color1;
   }
 
+  .wrapper-mobile {
+    position: relative;
+  }
+
   &__menu {
     display: flex;
     flex-direction: row;
     list-style: none;
     margin-top: 45px;
+    position: relative;
 
     @media (max-width: 1250px) {
       &:last-child {
@@ -78,6 +86,8 @@
     @media (max-width: 720px) {
       flex-direction: column;
       margin-top: 10px;
+      position: absolute;
+      right: -10px;
 
       &:last-child {
         margin-bottom: 20px;
@@ -89,20 +99,28 @@
     .text-change (14px, regular, @text-color1, @font-family1);
     text-decoration: none;
     padding: 14px 22px;
-    margin-left: 10px;
     display: block;
+    margin-left: 5px;
+    text-align: center;
 
-    @media (max-width: 1250px) {
-      margin-left: 0;
+    @media (max-width: 720px) {
+      .text-change (14px, regular, #10273d, @font-family1);
+      background-color: #fff;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      padding: 17px 20px;
+      box-sizing: border-box;
+      border: 1px solid #01a2a6;
     }
   }
 
   &__element:hover .menu__link {
     border: 3px solid #fff;
     border-radius: 30px;
-    padding: 14px 19px;
+    padding: 11px 19px;
   }
 
+  // отображение скрытого списка
   ul {
     @media (max-width: 720px) {
       display: none;
@@ -112,8 +130,83 @@
   input.toggleMenu:checked ~ ul {
     @media (max-width: 720px) {
       display: block;
-      //position: absolute;
     }
   }
 }
 
+
+// header block
+
+.header {
+  // заголовок
+  &__title {
+    .text-change (80px, regular, @text-color1, @font-family2);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 100px;
+
+    @media screen and (max-width: 768px) {
+      margin-left: 35px;
+      margin-right: 35px;
+      margin-top: 80px;
+    }
+
+    @media screen and (max-width: 541px) {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: 364px) {
+      margin-top: -15px;
+    }
+  }
+
+  &__title span {
+    color: #01a2a6;
+  }
+
+  // описание
+  &__desc {
+    .text-change (18px, regular, @text-color1, @font-family1);
+    text-align: center;
+    line-height: 1.8em;
+    margin-bottom: 50px;
+
+    @media screen and (max-width: 768px) {
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    @media screen and (max-width: 398px) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 364px) {
+      font-size: 16px;
+    }
+  }
+
+  // кнопка
+  &__button {
+    .text-change (18px, regular, #10273d, @font-family1);
+    background-color: @btn-form-color;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 30px 40px;
+    border-radius: 40px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(@btn-form-color, 9%);
+    }
+
+    @media (max-width: 364px) {
+      padding: 24px 32px;
+      margin-bottom: 15px;
+    }
+  }
+}
