@@ -21,6 +21,6 @@ bromo.addEventListener('click', function () {
     batuBlock.classList.remove('open');
     bromoBlock.classList.remove('close');
 
-    batu.style.color = '';
+    batu.style.color = '#777';
     bromo.style.color = '#01a2a6';
 });
